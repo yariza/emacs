@@ -13,6 +13,10 @@
 (normal-erase-is-backspace-mode 0)
 (set-keyboard-coding-system nil)
 
+;; DELETE KEY MAPS
+(global-set-key (kbd "M-k") '(lambda () (interactive) (kill-line 0)) )
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-c\C-k" 'kill-region)
 
 ;; MAP F1 TO MAN PAGE
 (global-set-key  [(f1)]  (lambda () (interactive) (manual-entry (current-word))))
