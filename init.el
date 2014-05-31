@@ -4,9 +4,11 @@
 (cask-initialize)
 (require 'pallet)
 
-;; DISABLE TOOL BAR, MENU BAR
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+;; disable toolbar, scrollbar, splash screen
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(setq inhibit-startup-message t)
 
 ;; MISC KEYBOARD RELATED THINGS
 (normal-erase-is-backspace-mode 0)
@@ -21,15 +23,22 @@
 (global-set-key  [(f1)]  (lambda () (interactive) (manual-entry (current-word))))
 
 ;; LINE NUMBERS AND COLUMN NUMBERS
-(global-linum-mode 1)
-;;(custom-set-variables '(linum-format (quote "%2d ")))
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
 (defadvice linum-update-window (around linum-dynamic activate)
   (let* ((w (length (number-to-string
                      (count-lines (point-min) (point-max)))))
          (linum-format (concat "%" (number-to-string w) "d ")))
     ad-do-it))
 (column-number-mode)
-
 
 ;; SET DEFAULT C INDENT STYLE
 (setq-default c-default-style "linux")
