@@ -3,6 +3,7 @@
 
 (depends-on "pallet")
 (depends-on "company")
+(depends-on "markdown-mode")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
