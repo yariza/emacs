@@ -18,7 +18,6 @@
 (depends-on "magit")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
-(depends-on "pallet")
 (depends-on "popwin")
 (depends-on "prodigy")
 (depends-on "projectile")
