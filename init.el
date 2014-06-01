@@ -10,9 +10,14 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-message t)
 
-;; MISC KEYBOARD RELATED THINGS
+;; keyboard backspace
 (normal-erase-is-backspace-mode 0)
 (set-keyboard-coding-system nil)
+
+;; mac command key is meta - not working
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+(setq ns-function-modifier 'hyper)
 
 ;; DELETE KEY MAPS
 (global-set-key (kbd "M-k") '(lambda () (interactive) (kill-line 0)) )
