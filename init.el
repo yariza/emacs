@@ -1,4 +1,6 @@
-;;; init.el --- startup
+
+
+;;; Init.el --- startup
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
@@ -10,6 +12,11 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-message t)
 
+;; interactively do things
+(require 'ido)
+(ido-mode t)
+
+
 ;; keyboard backspace
 (normal-erase-is-backspace-mode 0)
 (set-keyboard-coding-system nil)
@@ -17,15 +24,26 @@
 ;; mac command key is meta - not working
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
-(setq ns-function-modifier 'hyper)
 
 ;; DELETE KEY MAPS
 (global-set-key (kbd "M-k") '(lambda () (interactive) (kill-line 0)) )
 (global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-c\C-k" 'kill-region)
+(global-set-key "\C-x\C-k" 'kill-region)
 
-;; MAP F1 TO MAN PAGE
-(global-set-key  [(f1)]  (lambda () (interactive) (manual-entry (current-word))))
+;; diminish modelines
+(require 'diminish)
+(eval-after-load 'flycheck
+  '(diminish 'flycheck-mode))
+(eval-after-load 'company
+  '(diminish 'company-mode))
+
+;; company backends
+(setq company-backends '(company-elisp 
+                         company-gtags
+                         company-dabbrev-code
+                         company-keywords
+                         company-files 
+                         company-dabbrev))
 
 ;; LINE NUMBERS AND COLUMN NUMBERS
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
@@ -44,6 +62,19 @@
          (linum-format (concat "%" (number-to-string w) "d ")))
     ad-do-it))
 (column-number-mode)
+
+;; shell mode - <f1>
+(defun comint-delchar-or-eof-or-kill-buffer (arg)
+  (interactive "p")
+  (if (null (get-buffer-process (current-buffer)))
+      (kill-buffer)
+    (comint-delchar-or-maybe-eof arg)))
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (define-key shell-mode-map
+              (kbd "C-d") 'comint-delchar-or-eof-or-kill-buffer)))
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(global-set-key [f1] 'shell)
 
 ;; SET DEFAULT C INDENT STYLE
 (setq-default c-default-style "linux")

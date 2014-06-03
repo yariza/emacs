@@ -7,6 +7,7 @@
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
+(depends-on "diminish")
 (depends-on "drag-stuff")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
