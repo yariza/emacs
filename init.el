@@ -105,6 +105,10 @@
   '(diminish 'flycheck-mode))
 (eval-after-load 'company
   '(diminish 'company-mode))
+(eval-after-load "autopair"
+  '(diminish 'autopair-mode))
+(eval-after-load "abbrev"
+  '(diminish 'abbrev-mode))
 
 ;; company backends
 (setq company-backends '(company-elisp 
