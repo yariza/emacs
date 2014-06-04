@@ -66,10 +66,6 @@
               (add-to-list 'name-and-pos (cons name position))))))))
 (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
-;; auto-indent
-(require 'auto-indent-mode)
-(auto-indent-global-mode)
-
 ;; c-mode line commenting
 (add-hook 'c-mode-hook (lambda () (setq comment-start "//"
 										comment-end   "")))
@@ -85,6 +81,10 @@
 	(comment-or-uncomment-region beg end)
 	))
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line)
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode)
 
 ;; keyboard backspace
 (normal-erase-is-backspace-mode 0)

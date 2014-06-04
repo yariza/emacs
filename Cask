@@ -3,7 +3,7 @@
 
 (depends-on "pallet")
 (depends-on "company")
-(depends-on "auto-indent-mode")
+(depends-on "autopair")
 (depends-on "markdown-mode")
 (depends-on "bind-key")
 (depends-on "cask")
