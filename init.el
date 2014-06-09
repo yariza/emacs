@@ -90,14 +90,18 @@
 (normal-erase-is-backspace-mode 0)
 (set-keyboard-coding-system nil)
 
-;; mac command key is meta - not working
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'super)
+;; C-w is yank region if region active, delete word if not
+(defun yank-or-delete-word ()
+  "Yanks region if region active, and deletes word if not."
+  (interactive)
+  (if (region-active-p)
+	  (kill-region (region-beginning) (region-end))
+	(backward-kill-word 1))
+)
+(global-set-key (kbd "C-w") 'yank-or-delete-word)
 
 ;; DELETE KEY MAPS
 (global-set-key (kbd "M-k") '(lambda () (interactive) (kill-line 0)) )
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
 
 ;; diminish modelines
 (require 'diminish)
@@ -195,3 +199,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+(provide 'init)
+;;; init.el ends here
+
