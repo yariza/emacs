@@ -12,6 +12,10 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-message t)
 
+;; split across vertically by default
+(setq split-height-threshold nil)
+(setq split-width-threshold 80)
+
 ;; interactively do things
 (require 'ido)
 (ido-mode t)
@@ -174,6 +178,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 ;; AUTOSAVE AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
