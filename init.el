@@ -117,6 +117,8 @@
   '(diminish 'autopair-mode))
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
+(eval-after-load 'undo-tree
+  '(diminish 'undo-tree-mode))
 
 ;; company backends
 (setq company-backends '(company-elisp 
