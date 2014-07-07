@@ -1,10 +1,11 @@
-
-
 ;;; Init.el --- startup
 
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-(require 'pallet)
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(when (< emacs-major-version 24)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
 
 ;; disable toolbar, scrollbar, splash screen
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -165,8 +166,6 @@
               tab-width 4
               indent-tabs-mode t)
 
-;;; Packages
-
 ;; SEMANTIC COMPLETION
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -186,8 +185,6 @@
 
 ;; AUTOSAVE AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
-
-;;; Commentary: 
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
