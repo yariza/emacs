@@ -86,6 +86,22 @@
 	))
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line)
 
+;; pbcopy and pbcut
+(defun pbcopy ()
+  (interactive)
+  (shell-command-on-region (region-beginning) (region-end) "pbcopy")
+  (setq deactivate-mark t)
+)
+
+(defun pbcut ()
+  (interactive)
+  (pbcopy)
+  (delete-region (region-beginning) (region-end))
+)
+
+(global-set-key (kbd "C-c x") 'pbcut)
+(global-set-key (kbd "C-c c") 'pbcopy)
+
 ;; autopair
 (require 'autopair)
 (autopair-global-mode)
