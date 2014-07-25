@@ -200,6 +200,9 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;; erlang mode
+(require 'erlang-start)
+
 ;; AUTOSAVE AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
 
