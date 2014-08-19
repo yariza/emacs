@@ -203,6 +203,10 @@
 ;; erlang mode
 (require 'erlang-start)
 
+;; yaml mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;; AUTOSAVE AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
 
