@@ -1,5 +1,3 @@
-
-
 ;;; Init.el --- startup
 
 (require 'cask "~/.cask/cask.el")
@@ -137,11 +135,11 @@
   '(diminish 'undo-tree-mode))
 
 ;; company backends
-(setq company-backends '(company-elisp 
+(setq company-backends '(company-elisp
                          company-gtags
                          company-dabbrev-code
                          company-keywords
-                         company-files 
+                         company-files
                          company-dabbrev))
 
 ;; LINE NUMBERS AND COLUMN NUMBERS
@@ -207,10 +205,15 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
-;; AUTOSAVE AND BACKUP SETTINGS
+;; SHOW TRAILING WHITESPACE
+(require 'whitespace)
+(setq-default whitespace-style '(face empty trailing lines-tail))
+(global-whitespace-mode t)
+
+;; Autosave AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
 
-;;; Commentary: 
+;;; Commentary:
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -234,4 +237,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-
