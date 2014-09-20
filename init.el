@@ -137,6 +137,10 @@
   '(diminish 'abbrev-mode))
 (eval-after-load 'undo-tree
   '(diminish 'undo-tree-mode))
+(eval-after-load 'yasnippet
+  '(diminish 'yas-minor-mode))
+(eval-after-load "whitespace"
+  '(diminish 'global-whitespace-mode))
 
 ;; company backends
 (setq company-backends '(company-elisp
@@ -213,6 +217,10 @@
 (require 'whitespace)
 (setq-default whitespace-style '(face empty trailing lines-tail))
 (global-whitespace-mode t)
+
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; Autosave AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
