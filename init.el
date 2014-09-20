@@ -9,6 +9,10 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+(setq inhibit-startup-echo-area-message "ya")
+(blink-cursor-mode 0)
+(setq visible-bell t)
 
 ;; split across vertically by default
 (setq split-height-threshold nil)
