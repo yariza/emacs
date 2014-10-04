@@ -168,6 +168,13 @@
     ad-do-it))
 (column-number-mode)
 
+(defun my-prompt-auto-fill ()
+			(when (y-or-n-p "Auto Fill mode? ")
+			  (turn-on-auto-fill)))
+
+(add-hook 'text-mode-hook 'my-prompt-auto-fill)
+(add-hook 'markdown-mode-hook 'my-prompt-auto-fill)
+
 ;; shell mode - <f1>
 (defun comint-delchar-or-eof-or-kill-buffer (arg)
   (interactive "p")
