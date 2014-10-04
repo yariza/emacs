@@ -26,6 +26,7 @@
 (depends-on "projectile")
 (depends-on "s")
 (depends-on "smartparens")
+(depends-on "smooth-scrolling")
 (depends-on "smex")
 (depends-on "undo-tree")
 (depends-on "use-package")

@@ -14,6 +14,11 @@
 (blink-cursor-mode 0)
 (setq visible-bell t)
 
+(defun load-local (file)
+  (load (f-expand file user-emacs-directory)))
+
+(load-local "sane-defaults")
+
 ;; split across vertically by default
 (setq split-height-threshold nil)
 (setq split-width-threshold 80)
