@@ -197,7 +197,10 @@
 (setq-default c-default-style "linux")
 (setq-default c-basic-offset 4
               tab-width 4
-              indent-tabs-mode t)
+              indent-tabs-mode nil)
+
+;; don't always indent
+(setq-default tab-always-indent nil)
 
 ;;; Packages
 
@@ -231,8 +234,8 @@
 (global-whitespace-mode t)
 
 ;; yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
+; (require 'yasnippet)
+; (yas-global-mode 1)
 
 ;; Autosave AND BACKUP SETTINGS
 (add-to-list 'load-path "~/.emacs.d")
