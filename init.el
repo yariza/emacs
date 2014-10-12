@@ -194,10 +194,15 @@
 (global-set-key [f1] 'shell)
 
 ;; SET DEFAULT C INDENT STYLE
-(setq-default c-default-style "linux")
-(setq-default c-basic-offset 4
-              tab-width 4
-              indent-tabs-mode nil)
+;; (setq-default c-default-style "linux")
+;; (setq-default c-basic-offset 4
+;;               tab-width 4
+;;               indent-tabs-mode nil)
+
+;; adapt to foreign indent modes
+(require 'dtrt-indent)
+(autoload 'dtrt-indent-mode "dtrt-indent" "Adapt to foreign indentation offsets" t)
+(add-hook 'c-mode-common-hook 'dtrt-indent-mode)
 
 ;; don't always indent
 (setq-default tab-always-indent nil)

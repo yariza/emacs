@@ -8,6 +8,7 @@
 (depends-on "dash")
 (depends-on "diminish")
 (depends-on "drag-stuff")
+(depends-on "dtrt-indent")
 (depends-on "erlang")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
