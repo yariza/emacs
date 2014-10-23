@@ -177,7 +177,8 @@
 			(when (y-or-n-p "Auto Fill mode? ")
 			  (turn-on-auto-fill)))
 
-(add-hook 'text-mode-hook 'my-prompt-auto-fill)
+(add-hook 'text-mode-hook 'auto-fill-mode)
+(add-hook 'nxml-mode-hook (lambda () (auto-fill-mode -1)))
 (add-hook 'markdown-mode-hook 'my-prompt-auto-fill)
 
 ;; shell mode - <f1>
