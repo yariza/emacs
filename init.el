@@ -239,6 +239,9 @@
 (setq-default whitespace-style '(face empty trailing lines-tail))
 (global-whitespace-mode t)
 
+;; Color Identifiers mode
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
+
 ;; yasnippet
 ; (require 'yasnippet)
 ; (yas-global-mode 1)
