@@ -244,7 +244,7 @@
 ; (yas-global-mode 1)
 
 ;; Autosave AND BACKUP SETTINGS
-(add-to-list 'load-path "~/.emacs.d")
+;; (add-to-list 'load-path "~/.emacs.d")
 
 ;;; Commentary:
 
