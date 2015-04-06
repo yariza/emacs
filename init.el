@@ -80,6 +80,9 @@
 ;; c-mode line commenting
 (add-hook 'c-mode-hook (lambda () (setq comment-start "//" comment-end "")))
 
+;; add .cu extension to c++ mode
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+
 ;; ace-jump-mode
 (require 'ace-jump-mode)
 (autoload
