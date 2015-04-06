@@ -78,8 +78,28 @@
 (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
 ;; c-mode line commenting
-(add-hook 'c-mode-hook (lambda () (setq comment-start "//"
-										comment-end   "")))
+(add-hook 'c-mode-hook (lambda () (setq comment-start "//" comment-end "")))
+
+;; ace-jump-mode
+(require 'ace-jump-mode)
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+;;
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 ;; bind M-/ to comment region or line
 (defun comment-or-uncomment-region-or-line ()
