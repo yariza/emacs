@@ -12,7 +12,7 @@
 (setq initial-scratch-message "")
 (setq inhibit-startup-echo-area-message "ya")
 (blink-cursor-mode 0)
-(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 (defun load-local (file)
   (load (f-expand file user-emacs-directory)))
