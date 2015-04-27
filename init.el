@@ -92,6 +92,7 @@
   t)
 ;; you can select the key you prefer to
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-c C-SPC") 'ace-jump-mode)
 
 ;;
 ;; enable a more powerful jump back function from ace jump mode
