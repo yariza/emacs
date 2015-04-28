@@ -229,6 +229,18 @@
 (autoload 'dtrt-indent-mode "dtrt-indent" "Adapt to foreign indentation offsets" t)
 (add-hook 'c-mode-common-hook 'dtrt-indent-mode)
 
+;; c-mode - find counterpart file
+(add-hook 'c-initialization-hook 'my-set-other-file-hook)
+(defvar my-cpp-other-file-alist
+  '(("\\.cpp\\'" (".hpp" ".ipp" ".h"))
+    ("\\.hpp\\'" (".ipp" ".cpp"))
+    ("\\.cu\\'" (".h"))
+    ("\\.c\\'" (".h"))
+    ("\\.h\\'" (".c" ".cu" ".cpp"))
+))
+(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
+
 ;; don't always indent
 (setq-default tab-always-indent nil)
 
