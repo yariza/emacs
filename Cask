@@ -4,7 +4,6 @@
 (depends-on "ace-jump-mode")
 (depends-on "autopair")
 (depends-on "bind-key")
-(depends-on "color-identifiers-mode")
 (depends-on "cask")
 (depends-on "company")
 (depends-on "dash")
