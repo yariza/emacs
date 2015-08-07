@@ -134,8 +134,8 @@
 (global-set-key (kbd "C-c c") 'pbcopy)
 
 ;; autopair
-(require 'autopair)
-(autopair-global-mode)
+;; (require 'autopair)
+;; (autopair-global-mode)
 
 ;; keyboard backspace
 (normal-erase-is-backspace-mode 0)
